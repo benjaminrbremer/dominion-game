@@ -6,6 +6,10 @@
 
 class village {
 
-
+    name = "Village";
+    type = ACTION;
+    // Properties list - (from gameplay)
+    //     Draw card
+    //     Add action (twice)
 
 };

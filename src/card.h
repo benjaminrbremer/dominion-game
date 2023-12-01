@@ -7,8 +7,16 @@
 
 #endif //DOMINION_GAME_CARD_H
 
-String name;
+enum TYPE {
 
-String type;
+    ACTION = 0,
+    ATTACK = 1,
+    ACTION_REACTION = 2,
+    TREASURE = 3,
+    VICTORY_POINT = 4
+
+} type;
+
+String name;
 
 void** properties_list
