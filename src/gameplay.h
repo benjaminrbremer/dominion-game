@@ -15,6 +15,7 @@ srand(unsigned(time(NULL)));
 
 int actions;
 int buys;
+int treasure;
 int current_player;
 int total_players;
 void*** players_hands;
@@ -34,6 +35,12 @@ class gameplay {
 
     }
 
+    void add_treasure(int amount) {
+
+        treasure += amount;
+
+    }
+
     void use_action() {
 
         action --;
@@ -43,6 +50,12 @@ class gameplay {
     void use_buy() {
 
         buys --;
+
+    }
+
+    void use_treasure(int amount) {
+
+        treasure -= amount;
 
     }
 
@@ -63,6 +76,12 @@ class gameplay {
         std::random_shuffle(deck.begin(), deck.end());
 
     }
+
+    // Add a function for drawing a card
+
+    // Add functions for dynamically resizing the hand and deck array
+        // Hand array increase by 1 at a time, since it's rare to go much over 5
+        // Deck array double every time you have to resize
 
 };
 
