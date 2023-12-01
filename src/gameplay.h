@@ -5,10 +5,20 @@
 #ifndef DOMINION_GAME_GAMEPLAY_H
 #define DOMINION_GAME_GAMEPLAY_H
 
+#indluce "iostream"
+#include "vector"
+
+int DEFAULT_HAND_SIZE = 5;
+int DEFAULT_DECK_SIZE = 10;
+
+srand(unsigned(time(NULL)));
+
 int actions;
 int buys;
 int current_player;
 int total_players;
+void*** players_hands;
+void*** players_decks;
 
 class gameplay {
 
@@ -45,6 +55,12 @@ class gameplay {
             current_player = 1;
 
         }
+
+    }
+
+    void shuffle_deck(std::vector< void* >& deck) {
+
+        std::random_shuffle(deck.begin(), deck.end());
 
     }
 
