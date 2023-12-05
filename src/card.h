@@ -17,6 +17,6 @@ enum TYPE {
 
 } type;
 
-String name;
+char* name;
 
-void** properties_list
+void** properties_list;
