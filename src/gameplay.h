@@ -5,7 +5,7 @@
 #ifndef DOMINION_GAME_GAMEPLAY_H
 #define DOMINION_GAME_GAMEPLAY_H
 
-#indluce "iostream"
+import std
 #include "vector"
 
 int DEFAULT_HAND_SIZE = 5;

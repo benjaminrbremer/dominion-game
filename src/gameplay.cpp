@@ -4,8 +4,6 @@
 
 #include "gameplay.h"
 
-using namespace std
-
 void initialize_gameplay(int total_players) {
 
     // Setup players
