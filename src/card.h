@@ -7,6 +7,8 @@
 
 using function_t = void(*)();
 
+export module card_functions;
+
 enum TYPE {
 
     ACTION = 0,
@@ -15,7 +17,7 @@ enum TYPE {
     TREASURE = 3,
     VICTORY_POINT = 4
 
-} type;
+};
 
 enum CARDS {
 
@@ -55,38 +57,60 @@ enum CARDS {
 
 };
 
-char* name;
+export class Card {
 
-void*(function_t) properties_list;
+    public:
+        Card(char* name, TYPE type, function_t[] properties_list);
+        char* get_name();
+        TYPE get_type();
+        function_t* get_properties_list();
+        function_t& operator[](int index);
 
-export module card_functions {
-
-    char* get_name() {
-
-        return name;
-
-    }
-
-    TYPE get_type() {
-
-        return type;
-
-    }
-
-    void*(function_t) get_properties() {
-
-        return properties_list
-
-    }
-
-    function_t get_property(int index) {
-
-        // TODO - Add check to make sure index is in bounds
-        return properties_list[index];
-
-    }
+    private:
+        char* name;
+        TYPE type;
+        function_t[] properties_list;
+        int properties_size;
 
 };
+
+Card::Card(char* new_name, TYPE new_type, function_t[] new_properties_list)
+    :name(new char[new_name]), type(new_type), new function_t[new_properties_list])
+{
+    properties_size = sizeof(properties_list);
+}
+
+char* get_name() {
+
+    return name;
+
+}
+
+TYPE get_type() {
+
+    return type;
+
+}
+
+function_t* get_properties() {
+
+    return properties_list
+
+}
+
+function_t& Card::operator[](int index) {
+
+    if(index > -1 && index < properties_size) {
+
+        return properties_list[index];
+
+    }else {
+
+        return null;
+
+    }
+
+}
 
 #endif //DOMINION_GAME_CARD_H
 

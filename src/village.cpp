@@ -4,24 +4,14 @@
 
 #include "card.h"
 import gameplay
+import card_functions
 
-export module village {
+export class Village : public Card {
 
     public:
-        char* get_name();
-        TYPE get_type();
-        void** get_properties();
-        void* get_property(int index);
+        Village() : Card{"Village", TYPE.ACTION, new function_t[&draw_card(), &add_action(), &add_action]};
 
     private:
-        name = "Village";
-        type = ACTION;
-        // Properties list - (functions from gameplay)
-        properties_list = new void*[3];
-        //     Draw card
-        properties_list[0] = &draw_card();
-        //     Add action (twice)
-        properties_list[1] = &add_action();
-        properties_list[2] = &add_action();
 
 };
+

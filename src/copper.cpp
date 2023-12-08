@@ -1,24 +1,17 @@
 //
-// Created by Benjamin Bremer on 12/1/23.
+// Created by Benjamin Bremer on 11/30/23.
 //
 
 #include "card.h"
 import gameplay
+import card_functions
 
-export module copper{
+export class Copper : public Card {
 
     public:
-        char* get_name();
-        TYPE get_type();
-        void** get_properties();
-        void* get_property(int index);
+        Copper() : Card{"Copper", TYPE.TREASURE, new function_t[&add_treasure()]};
 
     private:
-        name = "Copper";
-        type = TREASURE;
-        properties_list = new void*[1];
-        // properties_list needs to add one to the number of treasure
-        properties_list[0] = &add_treasure();
 
 };
 

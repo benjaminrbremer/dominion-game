@@ -1,22 +1,17 @@
 //
-// Created by Benjamin Bremer on 12/1/23.
+// Created by Benjamin Bremer on 11/30/23.
 //
 
 #include "card.h"
 import gameplay
+import card_functions
 
-class estate {
+export class Estate : public Card {
 
     public:
-        char* get_name();
-        TYPE get_type();
-        void** get_properties();
-        void* get_property(int index);
+        Estate() : Card{"Estate", TYPE.VICTORY_POINT, new function_t[]};
 
     private:
-        name = "estate";
-        type = VICTORY_POINT;
-        // Victory points have no value in-game
-        properties_list = NULL;
 
 };
+
