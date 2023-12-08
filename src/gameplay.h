@@ -6,10 +6,10 @@
 #define DOMINION_GAME_GAMEPLAY_H
 
 import std
-#include "vector"
+import player
+import Card
 
-int DEFAULT_HAND_SIZE = 5;
-int DEFAULT_DECK_SIZE = 10;
+#include "vector"
 
 srand(unsigned(time(NULL)));
 
@@ -35,7 +35,7 @@ export class gameplay {
         int total_players;
         Player[] players;
         bool playGame;
-        public void switch_player();
+        void switch_player();
 
 };
 
