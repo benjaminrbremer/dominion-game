@@ -21,45 +21,53 @@ int total_players;
 void*** players_hands;
 void*** players_decks;
 
-class gameplay {
+export module gameplay {
 
-    void add_action() {
+    private int actions;
+    private int buys;
+    private int treasure;
+    private int current_player;
+    private int total_players;
+    private void*** players_hands;
+    private void*** players_decks;
+
+    public void add_action() {
 
         actions ++;
 
     }
 
-    void add_buy() {
+    public void add_buy() {
 
         buys ++;
 
     }
 
-    void add_treasure(int amount) {
+    public void add_treasure(int amount) {
 
         treasure += amount;
 
     }
 
-    void use_action() {
+    public void use_action() {
 
         action --;
 
     }
 
-    void use_buy() {
+    public void use_buy() {
 
         buys --;
 
     }
 
-    void use_treasure(int amount) {
+    public void use_treasure(int amount) {
 
         treasure -= amount;
 
     }
 
-    void switch_player() {
+    public void switch_player() {
 
         current_player ++;
 
@@ -71,7 +79,7 @@ class gameplay {
 
     }
 
-    void shuffle_deck(std::vector< void* >& deck) {
+    public void shuffle_deck(std::vector< void* >& deck) {
 
         std::random_shuffle(deck.begin(), deck.end());
 
@@ -84,6 +92,10 @@ class gameplay {
         // Deck array double every time you have to resize
 
 };
+
+void initialize_gameplay(int total_players);
+
+void play_game();
 
 
 #endif //DOMINION_GAME_GAMEPLAY_H
