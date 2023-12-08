@@ -13,89 +13,31 @@ int DEFAULT_DECK_SIZE = 10;
 
 srand(unsigned(time(NULL)));
 
-int actions;
-int buys;
-int treasure;
-int current_player;
-int total_players;
-void*** players_hands;
-void*** players_decks;
+export module Gameplay;
 
-export module gameplay {
+export class gameplay {
 
-    private int actions;
-    private int buys;
-    private int treasure;
-    private int current_player;
-    private int total_players;
-    private void*** players_hands;
-    private void*** players_decks;
+    public:
+        gameplay(int num_players);
+        void add_action() { actions ++; }
+        void add_buy() { buys ++; }
+        void add_treasure(int amount) { treasure += amount; }
+        void use_action() { action --; }
+        void use_buy() { buys --; }
+        void use_treasure(int amount) { treasure -= amount; }
+        void play_game();
 
-    public void add_action() {
-
-        actions ++;
-
-    }
-
-    public void add_buy() {
-
-        buys ++;
-
-    }
-
-    public void add_treasure(int amount) {
-
-        treasure += amount;
-
-    }
-
-    public void use_action() {
-
-        action --;
-
-    }
-
-    public void use_buy() {
-
-        buys --;
-
-    }
-
-    public void use_treasure(int amount) {
-
-        treasure -= amount;
-
-    }
-
-    public void switch_player() {
-
-        current_player ++;
-
-        if(current_player > total_players) {
-
-            current_player = 1;
-
-        }
-
-    }
-
-    public void shuffle_deck(std::vector< void* >& deck) {
-
-        std::random_shuffle(deck.begin(), deck.end());
-
-    }
-
-    // Add a function for drawing a card
-
-    // Add functions for dynamically resizing the hand and deck array
-        // Hand array increase by 1 at a time, since it's rare to go much over 5
-        // Deck array double every time you have to resize
+    private:
+        int actions;
+        int buys;
+        int treasure;
+        int current_player;
+        int total_players;
+        Player[] players;
+        bool playGame;
+        public void switch_player();
 
 };
-
-void initialize_gameplay(int total_players);
-
-void play_game();
 
 
 #endif //DOMINION_GAME_GAMEPLAY_H
