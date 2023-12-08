@@ -39,6 +39,6 @@ void draw_card() {
 
 void shuffle_deck() {
 
-
+    // TODO - Random number generator - grab random cards from discard and add them to the end of the deck
 
 }
