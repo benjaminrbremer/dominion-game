@@ -3,44 +3,25 @@
 //
 
 #include "card.h"
+import gameplay
 
 export module village {
+
     public:
         char* get_name();
         TYPE get_type();
         void** get_properties();
         void* get_property(int index);
+
     private:
         name = "Village";
         type = ACTION;
-    // Properties list - (from gameplay)
-    properties_list = new void*[3];
-    //     Draw card
-    //     Add action (twice)
+        // Properties list - (functions from gameplay)
+        properties_list = new void*[3];
+        //     Draw card
+        properties_list[0] = &draw_card();
+        //     Add action (twice)
+        properties_list[1] = &add_action();
+        properties_list[2] = &add_action();
 
 };
-
-char* get_name() {
-
-    return name;
-
-}
-
-TYPE get_type() {
-
-    return type;
-
-}
-
-void** get_properties() {
-
-    return properties_list
-
-}
-
-void* get_property(int index) {
-
-    // TODO - Add check to make sure index is in bounds
-    return properties_list[index];
-
-}
